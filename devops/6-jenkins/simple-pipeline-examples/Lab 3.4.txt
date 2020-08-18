@@ -1,0 +1,30 @@
+
+
+pipeline {
+  /*
+   * The environment section is used for setting environment variables and will allow for
+   * expanding variable and other methods to set those values as long as the return type is a String.
+   */
+  environment {
+    FOO = "BAR"
+    BUILD_NUM_ENV = currentBuild.getNumber()
+    ANOTHER_ENV = "${currentBuild.getNumber()}"
+  }
+
+  agent any
+
+  stages {
+    stage("Environment") {
+      steps {
+        sh 'echo "FOO is $FOO"'
+        // returns 'FOO is BAR'
+
+        sh 'echo "BUILD_NUM_ENV is $BUILD_NUM_ENV"'
+        // returns 'BUILD_NUM_ENV is 4' depending on the build number
+
+        sh 'echo "ANOTHER_ENV is $ANOTHER_ENV"'
+        // returns 'ANOTHER_ENV is 4' like the previous depending on the build number
+      }
+    }
+  }
+}

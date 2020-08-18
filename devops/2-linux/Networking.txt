@@ -1,0 +1,11 @@
+
+
+
+> ifconfig
+> ip addr show
+> nmcli
+> nmcli device show
+> ip route show
+> routel
+
+

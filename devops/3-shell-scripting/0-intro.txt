@@ -1,0 +1,19 @@
+
+
+So what are they exactly?
+
+-  A script for a computer tells the computer what it should do or say. 
+
+Anything you can run normally on the command line can be put into a script 
+and it will do exactly the same thing. 
+
+Similarly, anything you can put into a script can also be run normally on the command line 
+and it will do exactly the same thing.
+
+
+How do they work?
+
+Essentially a process is a running instance of a program.
+
+
+

@@ -1,0 +1,72 @@
+
+
+
+SSH Key-Based Authentication - How to SSH Without a Password
+============================================================
+
+
+
+Ubuntu change hostname command
+----------------------------------------
+
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+sudo reboot
+
+
+install ssh on ubuntu
+----------------------------------------
+
+sudo apt-get install openssh-server
+sudo systemctl status ssh.service
+
+
+sudo gedit /etc/ssh/sshd_config    
+sudo systemctl restart ssh.service 
+
+
+ssh
+----------------------------------------
+
+local-system:  ( Mac )
+------------------------
+ssh-keygen -t rsa -b 4096
+
+remote-system:  ( Linux )
+------------------------
+mkdir .ssh
+
+local-system:   ( Mac )
+------------------------
+scp ~/.ssh/id_rsa.pub <user>@<remote-ip-addr>:/home/nag/.ssh/uploaded_key.pub
+
+remote-system:  ( Linux )
+------------------------
+cat ~/.ssh/uploaded_key.pub >> ~/.ssh/authorized_keys
+sudo chmod 700 ~/.ssh
+sudo chmod 600 ~/.ssh/*
+
+local-system:  ( Mac )
+------------------------
+ssh <user>@<remote-ip-addr>
+
+
+
+
+
+
+
+easy-way:
+----------
+
+local-system:
+
+ssh-copy-id nag@192.168.56.104
+ssh nag@192.168.56.104
+
+
+
+
+
+
+

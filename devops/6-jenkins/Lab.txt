@@ -1,0 +1,116 @@
+
+
+Setting Up and Using Jenkins
+------------------------------
+
+in ubuntu 18.x
+
+Getting Jenkins Up and Running  
+
+step-1 : install java 8 or 11
+
+sudo apt install openjdk-8-jre-headless 
+
+step-2 : install jenkins 
+
+reference:
+https://pkg.jenkins.io/debian-stable/
+
+
+sudo systemctl enable jenkins.service
+sudo systemctl start jenkins.service
+sudo systemctl status jenkins.service
+
+
+
+
+Preparing Environment
+------------------------------
+
+jenkins-master:
+
+getent passwd jenkins
+sudo usermod -s /bin/bash jenkins
+sudo passwd jenkins
+sudo visudo
+sudo su - jenkins
+
+
+jenkins-agent:
+
+sudo useradd -m jenkins
+sudo usermod -s /bin/bash jenkins
+sudo passwd jenkins
+sudo visudo
+
+
+jenkins-master:
+
+ssh-keygen 
+ssh-copy-id jenkins@localhost
+ssh localhost
+exit
+
+ssh-copy-id jenkins@192.168.56.105
+ssh jenkins@192.168.56.105
+
+
+
+Our First Jenkins Build
+---------------------------
+
+- echo <hostname>
+
+
+Using Jenkins
+----------------
+
+Plugins and How to Manage Them
+
+    - ssh plugin
+    - git plugin
+
+Creating Scheduled Builds
+
+Setting Up a Build agent
+
+launching build on agent-ode
+
+ubuntu-agent:
+
+sudo apt install nodejs
+sudo apt install npm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

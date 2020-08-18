@@ -1,0 +1,695 @@
+
+
+---------------------------------------------------------------------
+
+to know what linux distribution
+
+> lsb_release -a
+
+to know version of kernel
+
+> uname -r
+
+GNU utilities
+
+> ls
+> ls --version
+
+X-server
+
+> X -version
+
+
+---------------------------------------------------------------------
+
+getting into the cli
+
+> ssh user@remote_host -p 
+
+---------------------------------------------------------------------
+
+command-line syntax
+
+> ls
+
+> ls -a
+> ls -h
+> ls -ah
+> ls -lh
+
+> ls -alsh
+> ls
+
+> ls -l
+> ls -ls
+> ls -s
+
+> ls -alsh
+> ls -als
+
+> ll   ==  ls -lh
+
+
+---------------------------------------------------------------------
+
+variables
+
+
+> var1="some value"
+> echo $var1
+> $HOME
+> echo $PS1
+> $PATH
+
+> var1=$(ls)
+> echo $var1
+
+
+---------------------------------------------------------------------
+
+Quoting
+
+> var1=some value   // error
+
+
+> var1=some\ value
+> echo $var1
+
+
+
+> echo 'this is $var1'
+> echo 'this is\  $var1'
+> echo "this is\  $var1"
+> echo "this is\  "qoute""
+> echo "this is\  \"qoute\""
+
+---------------------------------------------------------------------
+
+
+Man pages
+
+
+> man ls
+
+
+> ls
+
+> echo $?
+
+
+
+> var1="this is a line\nthis is another line"
+> echo $var1
+
+> man echo
+
+> echo -e $var1
+
+> man man
+
+> man -k block
+
+> bkid
+
+> lsblk
+
+> apropos block
+
+
+
+---------------------------------------------------------------------
+
+
+info pages
+
+
+> info echo
+
+
+
+---------------------------------------------------------------------
+
+
+using directories and listing files
+
+> man cd
+> cd --help
+
+
+> echo $HOME
+
+> cd
+
+> cd /
+
+> ls
+
+> cat /proc/cpuinfo
+
+
+
+
+moving around
+
+> cd /home
+> pwd
+> cd -
+> cd ..
+
+> cd ../..
+
+
+
+
+---------------------------------------------------------------------
+
+
+Hidden files and directories
+
+> mkdir testdir
+> touch file1 file2 file3 file4
+> touch .file5
+
+> ls
+> ls -a
+
+---------------------------------------------------------------------
+
+Home directories
+
+> cd
+
+> cat /etc/passwd
+
+> touch /tmp/testfile
+
+> man env
+> env
+
+> cd /tmp
+> env
+
+
+> cd ~
+> cd
+
+---------------------------------------------------------------------
+
+Absolute & Relative paths
+
+> touch file1
+> echo "hello world" >> file1
+> pwd
+> cat ./file1
+> cat /home/nag/file1
+> cd testdir
+> cat ../file1
+> cat /home/nag/file1
+
+---------------------------------------------------------------------
+
+creating, Moving, and deleting files
+
+
+> mkdir dir1
+> cp -r dir2 dir3
+> man cp
+> cp -r dir1 dir4
+> mv dir2 /tmp
+> mv dir1 dirone
+> rm -r dir2
+
+> cd testdir 
+> man touch
+> man file
+
+> file file1
+> file .file5
+
+> man cat
+
+> cat file1
+
+> mv testdir testdir2
+
+> mv testdir2/testdir ./
+> rm -r test
+
+
+> mkdir -p dir1/dir2/dir3
+
+
+---------------------------------------------------------------------
+
+
+case sensitivity
+
+
+> mkdir New Folder   
+> rm -r New/ Folder/
+> mkdir New\ Folder
+> cd New ( tab )
+> touch File
+> touch file
+> file file
+
+> man echo
+
+search for 'backlash' for case sensitivity
+
+> lsblk
+
+> cat /etc/fstab
+
+
+
+---------------------------------------------------------------------
+
+simple globbing
+
+
+> cd New\ Folder
+> touch file1 file2 file3 file3 file4
+> ls
+> ls file?
+> ls ?????
+> ls ????
+> ls ????1
+> ls file*
+> ls *
+> ls
+> ls *4
+> ls ????*
+> touch newfile4
+> ls *4
+> ls ????*
+
+> ls ????[1-3]
+> ls ????[3-9]
+
+> ls *[[:digit:]]
+> ls file*
+> for i in {1..1000};do touch file_$i; done
+> rm file1
+> rm file2
+> ls ?????
+> rm file_*
+
+
+
+---------------------------------------------------------------------
+
+Archivig Files and directories
+
+> cd New\ Folder
+> for i in {1..100};do touch test_file_$i; done
+> info tar
+> man tar
+
+> tar cf archive.tar test_file_*
+> rm -rf test_file_*
+> tar tf archive.tar
+> tar rf archive.tar file?
+> tar tf archive.tar
+> rm file?
+> ls
+> tar xf archive.tar file3
+> tar xf archive.tar file4
+> tar xf archive.tar 
+
+> rm test_file_*
+
+> tar xf archive.tar --wildcards 'test_file_?'
+> tar tf archive.tar
+
+
+---------------------------------------------------------------------
+
+Archivig Files and Compression
+
+
+> df -h
+
+
+> cd New/ Folder/
+> rm -rf *
+> ll /usr/share/dict
+> ll /usr/share/dict/
+> ll /usr/share/dict/american-english
+> ls -lh /usr/share/dict/american-english
+> cp /usr/share/dict/american-english ./
+> for i in {1..10};do cp american-english file_$i;done
+> ls -alh
+> tar cf archive.tar file_*
+> ls -alh
+> tar czf archive.tar.1 file_*
+> ls -alh
+> mv archive.tar.1 archive.tar.gz
+> tar cjf archive.tar.bz2 file_*
+> ls -alh
+
+> man zip
+
+> zip -r archive.zip file_*
+
+
+
+
+---------------------------------------------------------------------
+
+command line pipes
+
+
+> cd New/ Folder
+> ls
+> rm archive.*
+> ls
+> cat american-english
+> man grep
+> grep Apple american-english
+> grep M american-english
+> grep -e ^M american-english
+> cat american-english
+> cat american-english | grep Apple 
+> mac wc
+> wc -l american-english
+> cat american-english | grep Apple | wc -l
+
+
+> !wc
+
+> cat /etc/passwd | grep nag | cut -d: -f6
+
+
+
+
+---------------------------------------------------------------------
+
+IO re-direction
+
+> cat american-english | grep Apple
+
+> cat american-english | grep Apple > apple_result.txt
+
+> cat apple_result.txt
+
+> cat american-english | grep Ball > apple_result.txt
+
+> cat apple_result.txt
+
+> cat american-english | grep Apple >> apple_result.txt
+
+> cat apple_result.txt | sort
+
+
+> grep Apple < apple_result.txt
+
+
+
+
+---------------------------------------------------------------------
+
+Regular Expressions
+
+
+> cat american-english | grep -E "^Apple"  
+
+> cat american-english | grep -E "^seed"
+
+> cat american-english | grep -E "Apple$"
+
+> cat american-english | grep -E "Apple|Ball"
+
+> cat american-english | grep -E "Apple$|Ball$"
+
+
+
+---------------------------------------------------------------------
+
+Basic Shell Scripting
+
+
+> mkdir bin
+> cd bin
+
+> touch script.sh
+
+> echo "....." >> script.sh
+....
+> cat > script.sh
+
+> ll script.sh
+
+> chmod +x script.sh
+
+> echo $PATH
+
+> ./script.sh
+
+> PATH=$PATH:$HOME/bin/
+
+
+> echo $PATH
+
+
+> script.sh
+
+
+
+
+---------------------------------------------------------------------
+
+common text editors
+
+    - vim
+
+    - nano
+
+
+
+
+> head american-english
+> tail american-english
+> tail -n 100 american-english
+
+> head -n 10 american-english >> textfile.txt
+
+> vi textfile.txt
+
+
+---------------------------------------------------------------------
+
+
+Root and standard Users
+
+> man su
+
+> su 
+
+> cat /etc/sudoers
+
+> cat /etc/sudoers
+
+> visudo 
+
+> sudo cat /etc/sudoers
+
+> cat /etc/groups | grep 'nag'
+
+
+
+// root user
+
+> cat /etc/passwd | grep root
+> sudo su -
+
+> whoami
+
+> pwd
+
+> ls
+
+> rm -rf /*  ( never do / danger)
+
+
+> cat /etc/passwd
+
+> cat /etc/shadow
+
+> cat /etc/group
+
+
+
+
+---------------------------------------------------------------------
+
+
+system users / service accounts
+
+
+> cat /etc/passwd | grep apache
+
+> sudo apt-get install apache2
+
+> systemctl start apache2
+
+> systemctl status apache2
+
+> ss -lntp
+
+> ps aux | grep pid
+
+> cat /etc/passwd | grep www-data
+
+
+> cat /etc/passwd | wc -l
+
+> apt-cache search mysql
+
+> sudo apt-get install mysql-server-5.7
+
+> systemctl start mysql
+> systemctl status mysql
+
+> cat /etc/passwd | wc -l
+
+> ps aux | grep pid
+
+> cat /etc/passwd | grep mysql
+> cat /etc/passwd | grep www
+
+
+
+---------------------------------------------------------------------
+
+
+users & groups
+
+
+> cat /etc/passwd
+
+> cat /etc/passwd | wc -l
+
+> man useradd
+
+> useradd ajyal
+
+> sudo useradd ajyal
+
+> cat /etc/passwd
+
+> cat /etc/passwd | grep ajyal
+
+> cat /etc/group | grep ajyal
+
+> sudo /etc/shadow | grep ajyal
+
+> sudo su - ajyal
+
+> pwd
+
+
+> exit
+
+> sudo passwd ajyal
+> sudo /etc/shadow | grep ajyal
+
+> man usermod
+
+> sudo usermod -s /bin/bash ajyal
+> cat /etc/passwd | grep ajyal
+
+> ll /home
+
+> sudo mkhomedir_helper ajyal
+
+> ll /home
+
+> sudo useradd -m user1
+
+> ll /etc/skel
+
+> sudo passwd user1
+
+> cat /etc/group | grep sudo
+
+> sudo cat /etc/sudoers
+
+
+> groups
+
+> sudo groupadd linuxacademy
+
+> sudo usermod -a -G nag
+
+> groups
+
+> cat /etc/group
+
+> . /etc/profile
+
+> sudo usermod -a -G user1
+> sudo usermod -a -G user1
+
+> cat /etc/group | linux
+
+
+> sudo visudo 
+
+
+ > sudo cat /etc/sudoers
+
+
+> groups
+
+
+
+---------------------------------------------------------------------
+
+
+File & Directory permissions
+
+
+
+> ls
+> touch file1 file2 file3
+> echo "some text" >> file1
+
+> sudo chown :trainingroom file1
+
+> ll
+
+> sudo chmod 664 file1
+
+> sudo chmod g+rw file
+
+> ll
+
+> sudo chown sultan file2
+
+> echo "some new text" >> file2
+
+> chown nag:nag *
+
+> chmod 644 *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
